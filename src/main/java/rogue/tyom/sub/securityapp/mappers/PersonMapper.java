@@ -1,18 +1,22 @@
 package rogue.tyom.sub.securityapp.mappers;
 
-import lombok.AllArgsConstructor;
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Component;
-import rogue.tyom.sub.securityapp.dto.PersonDto;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import rogue.tyom.sub.securityapp.config.MapStructConfig;
+import rogue.tyom.sub.securityapp.dto.AuthenticationDto;
+import rogue.tyom.sub.securityapp.dto.BankAccountDto;
+import rogue.tyom.sub.securityapp.dto.RegistrationPersonDto;
+import rogue.tyom.sub.securityapp.models.BankAccount;
 import rogue.tyom.sub.securityapp.models.Person;
 
-@Component
-@AllArgsConstructor
-public class PersonMapper {
+@Mapper(config = MapStructConfig.class)
+public interface PersonMapper {
 
-    private final ModelMapper modelMapper;
+    @Mapping(target = "bankAccount", expression = "java(mapBankAccount(registrationPersonDto.getBankAccountDto()))")
+    Person mapPerson(RegistrationPersonDto registrationPersonDto);
 
-    public Person convertToPerson(PersonDto personDto) {
-        return modelMapper.map(personDto, Person.class);
-    }
+    BankAccount mapBankAccount(BankAccountDto bankAccountDto);
+
+    BankAccount mapAuthentication(AuthenticationDto authenticationDto);
+
 }

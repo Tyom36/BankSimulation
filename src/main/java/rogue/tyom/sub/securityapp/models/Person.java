@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "person")
@@ -29,6 +30,12 @@ public class Person {
     @NotNull(message = "Должен быть создан банковский аккаунт")
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private BankAccount bankAccount;
+
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<PhoneNumber> numbers;
+
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<PersonEmail> emails;
 
     @Override
     public String toString() {

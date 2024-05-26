@@ -1,14 +1,13 @@
 package rogue.tyom.sub.securityapp.security;
 
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import rogue.tyom.sub.securityapp.models.BankAccount;
 
 import java.util.Collection;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class BankAccountDetails implements UserDetails {
 
     private final BankAccount bankAccount;

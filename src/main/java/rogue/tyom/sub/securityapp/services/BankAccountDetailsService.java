@@ -9,6 +9,7 @@ import rogue.tyom.sub.securityapp.models.BankAccount;
 import rogue.tyom.sub.securityapp.repositories.BankAccountRepository;
 import rogue.tyom.sub.securityapp.security.BankAccountDetails;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,4 +28,13 @@ public class BankAccountDetailsService implements UserDetailsService {
 
         return new BankAccountDetails(bankAccount.get());
     }
+
+    public Optional<BankAccount> findByUsername(String username) {
+        return bankAccountRepository.findByUsername(username);
+    }
+
+    public List<BankAccount> findAllAccounts() {
+        return bankAccountRepository.findAll();
+    }
+
 }

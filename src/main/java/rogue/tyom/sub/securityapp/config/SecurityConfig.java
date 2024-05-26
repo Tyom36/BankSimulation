@@ -40,7 +40,7 @@ public class SecurityConfig {
                         .loginPage("/login")
                         .loginProcessingUrl("/process_login")
                         .defaultSuccessUrl("/hello", true)
-                        .failureUrl("/login?error"))
+                        .failureUrl("/login"))
 
                 .logout(logout -> logout
                         .logoutUrl("/logout")
