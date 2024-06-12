@@ -30,6 +30,7 @@ public class AuthController {
         HttpHeaders headers = new HttpHeaders();
         String token = jwtUtil.generateToken(person.getBankAccount().getUsername());
         headers.add("jwt-token", token);
+        System.out.println("test");
 
         return new ResponseEntity<>("Регистрация прошла успешно!", headers, HttpStatus.OK);
     }
