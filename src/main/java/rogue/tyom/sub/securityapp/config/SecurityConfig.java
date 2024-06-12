@@ -36,16 +36,6 @@ public class SecurityConfig {
                         .requestMatchers("/login", "/registration").permitAll()
                         .anyRequest().authenticated())
 
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .loginProcessingUrl("/process_login")
-                        .defaultSuccessUrl("/hello", true)
-                        .failureUrl("/login"))
-
-                .logout(logout -> logout
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login"))
-
                 .sessionManagement(sessionManagement -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
