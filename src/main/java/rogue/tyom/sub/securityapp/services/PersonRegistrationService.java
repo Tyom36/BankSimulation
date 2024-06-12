@@ -80,6 +80,7 @@ public class PersonRegistrationService {
         } catch (BadCredentialsException e) {
             return false;
         }
+
         return true;
     }
 
