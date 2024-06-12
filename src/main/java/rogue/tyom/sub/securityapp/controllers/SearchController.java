@@ -26,7 +26,7 @@ public class SearchController {
                                                    @RequestParam(name = "page", required = false) Integer page,
                                                    @RequestParam(name = "items_per_page", required = false) Integer itemsPerPage) {
 
-        List<Person> filteredPersons = personSearchService.findPersonsByFilters(birthDate, phoneNumber, fullName, email, page, itemsPerPage);
+        List<Person> filteredPersons = personSearchService.findPersonsWithFilters(birthDate, phoneNumber, fullName, email, page, itemsPerPage);
         return ResponseEntity.ok(filteredPersons);
     }
 }
