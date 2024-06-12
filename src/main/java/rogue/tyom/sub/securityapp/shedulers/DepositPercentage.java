@@ -16,7 +16,8 @@ public class DepositPercentage {
 
     private final BankAccountDetailsService bankAccountDetailsService;
 
-    @Scheduled(cron = "0 * * * * *")
+    //@Scheduled(cron = "0 * * * * *")
+    @Scheduled(fixedRate = 60_000)
     @Transactional
     public void increaseDeposits() {
         List<BankAccount> accounts = bankAccountDetailsService.findAllAccounts();
