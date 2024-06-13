@@ -25,7 +25,6 @@ public class SearchController {
                                                    @RequestParam(name = "email", required = false) String email,
                                                    @RequestParam(name = "page", required = false) Integer page,
                                                    @RequestParam(name = "items_per_page", required = false) Integer itemsPerPage) {
-        System.out.println("testing github plugin");
         List<Person> filteredPersons = personSearchService.findPersonsWithFilters(birthDate, phoneNumber, fullName, email, page, itemsPerPage);
         return ResponseEntity.ok(filteredPersons);
     }
